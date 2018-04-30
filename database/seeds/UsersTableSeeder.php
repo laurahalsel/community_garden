@@ -12,17 +12,24 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Kim',
-            'email' => 'KimonthyH.@gmail.com',
-            'imageFileName' => 'kim.png',
-            'password' => bcrypt('kim'),
+            'name' => 'Laura E. Halsel',
+            'systemID' => 1,
+            'email' => 'lhalsel@gmail.com',
+            'imageFileName' => 'laura.jpg',
+            'password' => bcrypt('test123'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
+        DB::table('users')->insert([
+            'name' => 'Miyuki Cuddlebugs',
+            'systemID' => 2,
+            'email' => 'miyuki@aol.com',
+            'imageFileName' => 'dog.jpg',
+            'password' => bcrypt('test123'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
-        DB::table('users')->insert([
-            'name' => 'Mulch black',
-            'email' => 'MuclchBlack@yahoo.com',
-            'imageFileName' => 'mulchblack.png',
-            'password' => bcrypt('mulch'),
-        ]);
     }
 }

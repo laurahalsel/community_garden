@@ -5,25 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Add User') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('users.store') }}">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="gardenName" class="col-md-4 col-form-label text-md-right">{{ __('Garden Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="gardenName" type="text" class="form-control{{ $errors->has('gardenName') ? ' is-invalid' : '' }}" name="gardenName" value="{{ old('gardenName') }}" required autofocus>
-
-                                @if ($errors->has('gardenName'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('gardenName') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -54,14 +40,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="imageFileName" class="col-md-4 col-form-label text-md-right">{{ __('Image File Name') }}</label>
+                            <label for="imageFilename" class="col-md-4 col-form-label text-md-right">{{ __('Image File Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="imageFileName" type="text" class="form-control{{ $errors->has('imageFileName') ? ' is-invalid' : '' }}" name="imageFileName" value="{{ old('imageFileName') }}">
+                                <input id="imageFilename" type="text" class="form-control{{ $errors->has('imageFilename') ? ' is-invalid' : '' }}" name="imageFilename" value="{{ old('imageFilename') }}">
 
-                                @if ($errors->has('imageFileName'))
+                                @if ($errors->has('imageFilename'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('imageFileName') }}</strong>
+                                        <strong>{{ $errors->first('imageFilename') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -92,7 +78,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Add User') }}
                                 </button>
                             </div>
                         </div>

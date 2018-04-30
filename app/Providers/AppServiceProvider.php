@@ -12,9 +12,22 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
+        
         Schema::defaultStringLength(191);
+
+
+        $this->app->singleton('system', function() {
+
+            $user = \Auth::user();
+
+            if(is_null($user)) {
+                $system = \DB::table('systems')->find(1);
+            } else {
+                $system = \DB::table('systems')->find($user->systemID);
+            }
+            return $system;
+        });
     }
 
     /**

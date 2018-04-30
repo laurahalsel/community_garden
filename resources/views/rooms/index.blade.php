@@ -5,22 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Users
+                <div class="card-header">Rooms
                     </br>
-                    <a href="/users/create"> Add Users</a>
+                    <a href="/rooms/create"> Add Room</a>
                 </div>
                 <div class="card-body">
                     <table class='table' border='1' cellpadding='10'>
                         <tr>
                             <td>Name</td>
-                            <td>Email</td>
+                            <td>Comments</td>
                             <td></td>
                         </tr>
-                        @foreach($users as $user) 
+                        @foreach($rooms as $rooms) 
                             <tr>
-                                <td>{{ $user['name'] }}</td>
-                                <td>{{ $user['email'] }}</td>
-                                <td><a href="/users/edit/{{ $user["id"] }}">Edit</a></td>
+                                <td>{{ $rooms['name'] }}</td>
+                                <td>{{ $rooms['comments'] }}</td>
+                                <td><a href="/rooms/edit/{{ $rooms["id"] }}">Edit</a></td>
                             <tr>
                         @endforeach
                     </table>
