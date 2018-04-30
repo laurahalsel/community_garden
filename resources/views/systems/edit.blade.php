@@ -4,47 +4,49 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Edit Plant Type') }}</div>
+            <div class="card"> 
+                <div class="card-header">{{ __('Edit System') }}
+                
+                </div>
 
                 <div class="card-body">
-                    <form method="POST" action="/system/{{ $system->id }}">
-                        @csrf
+                    <form class="form-horizontal" method="post" action="/systems/{{ $system->id }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
 
-                        <input value="{{ $system->id }}" type="hidden" id="id" name="id">
+                        <input value='{{ $system->id }}' type="hidden" id="id" name="id"> 					    
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Community Name') }}</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row">
+                            <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $system->name }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value='{{ $system->name }}' required autofocus>
 
                                 @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
+                                    <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> 
 
-                        <div class="form-group row">
-                            <label for="imageFilename" class="col-md-4 col-form-label text-md-right">{{ __('Image File Name') }}</label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row">
+                            <label for="imageFileName" class="col-md-4 control-label">Image File Name</label>
 
                             <div class="col-md-6">
-                                <input id="imageFilename" type="text" class="form-control{{ $errors->has('imageFilename') ? ' is-invalid' : '' }}" name="imageFilename" value="{{ $system->imageFileName  }}">
+                                <input id="imageFileName" type="file" class="form-control" name="imageFileName" value='{{ $system->imageFileName }}' >
 
-                                @if ($errors->has('imageFilename'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('imageFilename') }}</strong>
+                                @if ($errors->has('imageFileName'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('imageFileName') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Apply Changes') }}
+                                    Edit
                                 </button>
                             </div>
                         </div>
